@@ -78,5 +78,35 @@
     "id": "experience-dsc",
     "category": "experience",
     "text": "Executive Member of the DIU Data Science Club (2024 – Present, DIU, Dhaka). Organized workshops and peer learning sessions on data science and AI tools, supporting AI literacy across the Software Engineering department."
+  },
+  {
+    "id": "cert-aws",
+    "category": "certification",
+    "text": "AWS Academy Graduate — Cloud Security Foundations, issued by Amazon Web Services, April 2026, 20 hours."
+  },
+  {
+    "id": "cert-ml",
+    "category": "certification",
+    "text": "Getting Started with Machine Learning Algorithms, issued by Simplilearn, April 2026."
+  },
+  {
+    "id": "cert-laravel",
+    "category": "certification",
+    "text": "PHP Laravel Basics, issued by CodeSignal, April 2026."
+  },
+  {
+    "id": "cert-webdev",
+    "category": "certification",
+    "text": "Web Development with HTML, CSS & JavaScript, issued by CodeSignal, April 2026."
+  },
+  {
+    "id": "cert-teaching",
+    "category": "certification",
+    "text": "Introduction to the Learning Process for Teachers and Trainers, issued by Alison, June 2026."
+  },
+  {
+    "id": "cert-msai",
+    "category": "certification",
+    "text": "Embark on Your AI Journey with Free AI Tools from Microsoft Education, issued by Microsoft, June 2026."
   }
 ]
