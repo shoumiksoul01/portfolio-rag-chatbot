@@ -38,5 +38,30 @@
     "id": "research-1",
     "category": "research",
     "text": "Ongoing research (2026): LLM Evaluation for Clinical Decision Support. Comparing free LLMs — Llama 3.3-70B via Groq and Gemini Flash — against paid alternatives like GPT-4o mini for clinical decision support in resource-limited healthcare settings. Applies XGBoost for disease risk prediction and SHAP for model explainability using the IMPACT scoring framework. Conducted at the Department of Software Engineering, DIU, 2026."
+  },
+  {
+    "id": "project-tryonai",
+    "category": "project",
+    "text": "TryOn.ai — a B2B SaaS virtual try-on platform built with Next.js, FastAPI, Python, IDM-VTON, and Hugging Face, deployed on Vercel and Render. Merchants embed a widget on their storefront; customers upload a photo and instantly see themselves wearing any garment. Two tiers: Starter (IDM-VTON, free model) and Pro (fashn.ai) with API key management, usage tracking, and a live demo storefront. Built for DIU's 'AI in Entrepreneurship' showcase and startup incubator applications. Shoumik's featured/flagship project."
+  },
+  {
+    "id": "project-examease",
+    "category": "project",
+    "text": "Exam Ease — a centralized academic scheduling system built with Java, React, System Design, and UML. Features role-based dashboards for Student, Teacher, and Admin. Shoumik led a team of 3 and produced full system documentation: Use Case, ER, Class, Activity, Sequence, and DFD diagrams following OBE principles. Capstone project supervised by Md Shohel Arman at DIU. GitHub: github.com/shoumiksoul01/Exam-Ease."
+  },
+  {
+    "id": "project-fourthwall",
+    "category": "project",
+    "text": "Fourth Wall — a full-stack web application for managing and organizing user-generated movie dialogues, built with React, Firebase, JavaScript, and Vite. Features Google Authentication, an admin moderation panel, a favourites system, and a responsive UI with client-side state management. Deployed on Firebase Hosting. GitHub: github.com/shoumiksoul01/Fourth-Wall."
+  },
+  {
+    "id": "project-bloodbank",
+    "category": "project",
+    "text": "Blood Bank System — a donor-patient matching system built with Java, MySQL, and OOP principles. Includes authentication, eligibility validation, and real-time availability tracking, with a modular backend and blood group-based filtering to optimize donor search in emergency scenarios."
+  },
+  {
+    "id": "project-signlanguage",
+    "category": "project",
+    "text": "Real-Time Sign Language to Text Conversion System — a webcam-based system recognizing ASL (American Sign Language) hand signs A-Z and converting them to text in real time. Built with Python, MediaPipe Tasks API (HandLandmarker) for 21-point hand landmark extraction, and a RandomForestClassifier trained on the ASL Alphabet dataset. Achieved 97.99% accuracy on 12,480 test samples, running entirely on CPU at ~17 FPS with no GPU or internet required. Built for the AI & Expert Systems Lab course at DIU. GitHub: github.com/shoumiksoul01/sign-language-to-text."
   }
 ]
