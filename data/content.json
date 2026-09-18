@@ -33,5 +33,10 @@
     "id": "education-2",
     "category": "education",
     "text": "HSC (Science) from Govt. Sundarban Adarsha College, 2019–2021, Khulna, GPA 5.00/5.00. SSC (Science) from Khulna Zilla School, 2011–2019, Khulna, GPA 5.00/5.00."
+  },
+  {
+    "id": "research-1",
+    "category": "research",
+    "text": "Ongoing research (2026): LLM Evaluation for Clinical Decision Support. Comparing free LLMs — Llama 3.3-70B via Groq and Gemini Flash — against paid alternatives like GPT-4o mini for clinical decision support in resource-limited healthcare settings. Applies XGBoost for disease risk prediction and SHAP for model explainability using the IMPACT scoring framework. Conducted at the Department of Software Engineering, DIU, 2026."
   }
 ]
