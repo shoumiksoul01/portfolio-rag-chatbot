@@ -1,0 +1,17 @@
+[
+  {
+    "id": "bio-1",
+    "category": "bio",
+    "text": "Sk. Shoumik Haque is a final-year B.Sc. Software Engineering student at Daffodil International University (DIU) in Dhaka, Bangladesh, with a CGPA of 3.94/4.00. He is passionate about building meaningful software and exploring AI-driven research, and has maintained consistent academic excellence while engaging in research, campus leadership, and real-world development projects."
+  },
+  {
+    "id": "bio-2",
+    "category": "bio",
+    "text": "Shoumik's research focuses on evaluating Large Language Models for clinical decision support in resource-limited healthcare settings. He believes technology, when built thoughtfully, can create meaningful change — especially in healthcare and education. His roles include Software Engineer and Researcher."
+  },
+  {
+    "id": "contact-1",
+    "category": "contact",
+    "text": "Contact Shoumik: email sheikhshoumik64@gmail.com, phone 01905805093, located in Dhaka, Bangladesh. LinkedIn: linkedin.com/in/sheikh-shoumik-haque. GitHub: github.com/shoumiksoul01."
+  }
+]
