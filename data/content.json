@@ -63,5 +63,20 @@
     "id": "project-signlanguage",
     "category": "project",
     "text": "Real-Time Sign Language to Text Conversion System — a webcam-based system recognizing ASL (American Sign Language) hand signs A-Z and converting them to text in real time. Built with Python, MediaPipe Tasks API (HandLandmarker) for 21-point hand landmark extraction, and a RandomForestClassifier trained on the ASL Alphabet dataset. Achieved 97.99% accuracy on 12,480 test samples, running entirely on CPU at ~17 FPS with no GPU or internet required. Built for the AI & Expert Systems Lab course at DIU. GitHub: github.com/shoumiksoul01/sign-language-to-text."
+  },
+  {
+    "id": "experience-rednetwork",
+    "category": "experience",
+    "text": "Remote IT Officer at Red Network Ltd. (Dec 2025 – April 2026, Remote/Khulna, Bangladesh). Provided remote technical support for company systems, troubleshooting hardware, software, and connectivity issues. Assisted with cloud infrastructure monitoring and basic configuration aligned with AWS Cloud Security practices. Maintained IT process documentation and coordinated with the development team on system issues."
+  },
+  {
+    "id": "experience-caretutors",
+    "category": "experience",
+    "text": "Campus Ambassador at CareTutors (Jan 2025 – Jan 2026, DIU, Dhaka). Coordinated the CareTutors booth at DIU Job Utshab, engaging 200+ prospective students. Promoted an e-learning platform across campus via social media and peer outreach campaigns."
+  },
+  {
+    "id": "experience-dsc",
+    "category": "experience",
+    "text": "Executive Member of the DIU Data Science Club (2024 – Present, DIU, Dhaka). Organized workshops and peer learning sessions on data science and AI tools, supporting AI literacy across the Software Engineering department."
   }
 ]
