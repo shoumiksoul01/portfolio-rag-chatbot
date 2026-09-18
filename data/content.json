@@ -13,5 +13,25 @@
     "id": "contact-1",
     "category": "contact",
     "text": "Contact Shoumik: email sheikhshoumik64@gmail.com, phone 01905805093, located in Dhaka, Bangladesh. LinkedIn: linkedin.com/in/sheikh-shoumik-haque. GitHub: github.com/shoumiksoul01."
+  },
+  {
+    "id": "skills-1",
+    "category": "skills",
+    "text": "Programming languages: Java, Python, JavaScript, PHP. Web technologies: React, HTML, CSS, Firebase, Laravel. Databases: MySQL, Firebase DB."
+  },
+  {
+    "id": "skills-2",
+    "category": "skills",
+    "text": "Machine learning / AI skills: XGBoost, SHAP, Scikit-learn. AI tools used: Claude, ChatGPT, Gemini, Groq, Perplexity."
+  },
+  {
+    "id": "education-1",
+    "category": "education",
+    "text": "Currently pursuing B.Sc. in Software Engineering at Daffodil International University, 4th year, 2023–Present, Dhaka, Bangladesh. CGPA 3.94/4.00. Expected graduation around April 2027."
+  },
+  {
+    "id": "education-2",
+    "category": "education",
+    "text": "HSC (Science) from Govt. Sundarban Adarsha College, 2019–2021, Khulna, GPA 5.00/5.00. SSC (Science) from Khulna Zilla School, 2011–2019, Khulna, GPA 5.00/5.00."
   }
 ]
