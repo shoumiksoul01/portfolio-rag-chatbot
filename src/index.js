@@ -14,7 +14,7 @@ export default {
     }
 
     if (url.pathname === "/ingest" && request.method === "POST") {
-      return new Response("ingest not implemented yet", { status: 501 });
+      return handleIngest(request, env);
     }
 
     if (url.pathname === "/chat" && request.method === "POST") {
@@ -30,4 +30,33 @@ async function embed(env, text) {
     text: [text],
   });
   return result.data[0];
+}
+
+async function handleIngest(request, env) {
+  const secretHeader = request.headers.get("X-Ingest-Secret");
+  if (secretHeader !== env.INGEST_SECRET) {
+    return new Response("Unauthorized", { status: 401 });
+  }
+
+  const chunks = await request.json();
+
+  const vectors = [];
+  for (const chunk of chunks) {
+    const vector = await embed(env, chunk.text);
+    vectors.push({
+      id: chunk.id,
+      values: vector,
+      metadata: {
+        text: chunk.text,
+        category: chunk.category,
+      },
+    });
+  }
+
+  await env.VECTORIZE.upsert(vectors);
+
+  return new Response(
+    JSON.stringify({ ingested: vectors.length }),
+    { headers: { "Content-Type": "application/json" } }
+  );
 }
