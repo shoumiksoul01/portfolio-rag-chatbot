@@ -71,10 +71,39 @@ async function handleChat(request, env) {
     returnMetadata: true,
   });
 
-  const contextChunks = matches.matches.map((m) => m.metadata.text);
+  const sources = matches.matches.map((m) => m.metadata.category);
+  const contextText = matches.matches
+    .map((m) => m.metadata.text)
+    .join("\n");
+
+  const systemPrompt = `You are a portfolio assistant answering questions about Shoumik (Sheikh Shoumik Haque) for visitors to his website.
+Answer ONLY using the context below. Speak in third person about Shoumik.
+Keep answers to 2-4 sentences.
+If the answer is not contained in the context, say you don't have that information and suggest emailing sheikhshoumik64@gmail.com.
+
+Context:
+${contextText}`;
+
+  const claudeResponse = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": env.ANTHROPIC_API_KEY,
+      "anthropic-version": "2023-06-01",
+    },
+    body: JSON.stringify({
+      model: "claude-haiku-4-5-20251001",
+      max_tokens: 300,
+      system: systemPrompt,
+      messages: [{ role: "user", content: query }],
+    }),
+  });
+
+  const claudeData = await claudeResponse.json();
+  const answer = claudeData.content?.[0]?.text || "Sorry, something went wrong.";
 
   return new Response(
-    JSON.stringify({ contextChunks }),
+    JSON.stringify({ answer, sources }),
     { headers: { "Content-Type": "application/json" } }
   );
 }
