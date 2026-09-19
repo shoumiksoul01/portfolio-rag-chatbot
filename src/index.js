@@ -1,27 +1,26 @@
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    const corsHeaders = {
+      "Access-Control-Allow-Origin": env.ALLOWED_ORIGIN,
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, X-Ingest-Secret",
+    };
 
     // CORS preflight
     if (request.method === "OPTIONS") {
-      return new Response(null, {
-        headers: {
-          "Access-Control-Allow-Origin": env.ALLOWED_ORIGIN,
-          "Access-Control-Allow-Methods": "POST, OPTIONS",
-          "Access-Control-Allow-Headers": "Content-Type, X-Ingest-Secret",
-        },
-      });
+      return new Response(null, { headers: corsHeaders });
     }
 
     if (url.pathname === "/ingest" && request.method === "POST") {
-      return handleIngest(request, env);
+      return handleIngest(request, env, corsHeaders);
     }
 
     if (url.pathname === "/chat" && request.method === "POST") {
-      return handleChat(request, env);
+      return handleChat(request, env, corsHeaders);
     }
 
-    return new Response("Not found", { status: 404 });
+    return new Response("Not found", { status: 404, headers: corsHeaders });
   },
 };
 
@@ -32,10 +31,10 @@ async function embed(env, text) {
   return result.data[0];
 }
 
-async function handleIngest(request, env) {
+async function handleIngest(request, env, corsHeaders) {
   const secretHeader = request.headers.get("X-Ingest-Secret");
   if (secretHeader !== env.INGEST_SECRET) {
-    return new Response("Unauthorized", { status: 401 });
+    return new Response("Unauthorized", { status: 401, headers: corsHeaders });
   }
 
   const chunks = await request.json();
@@ -57,11 +56,11 @@ async function handleIngest(request, env) {
 
   return new Response(
     JSON.stringify({ ingested: vectors.length }),
-    { headers: { "Content-Type": "application/json" } }
+    { headers: { "Content-Type": "application/json", ...corsHeaders } }
   );
 }
 
-async function handleChat(request, env) {
+async function handleChat(request, env, corsHeaders) {
   const { query } = await request.json();
 
   const queryVector = await embed(env, query);
@@ -104,6 +103,6 @@ ${contextText}`;
 
   return new Response(
     JSON.stringify({ answer, sources }),
-    { headers: { "Content-Type": "application/json" } }
+    { headers: { "Content-Type": "application/json", ...corsHeaders } }
   );
 }
