@@ -83,23 +83,22 @@ If the answer is not contained in the context, say you don't have that informati
 Context:
 ${contextText}`;
 
-  const claudeResponse = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": env.ANTHROPIC_API_KEY,
-      "anthropic-version": "2023-06-01",
-    },
-    body: JSON.stringify({
-      model: "claude-haiku-4-5-20251001",
-      max_tokens: 300,
-      system: systemPrompt,
-      messages: [{ role: "user", content: query }],
-    }),
-  });
+  const geminiResponse = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${env.GEMINI_API_KEY}`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        systemInstruction: { parts: [{ text: systemPrompt }] },
+        contents: [{ parts: [{ text: query }] }],
+      }),
+    }
+  );
 
-  const claudeData = await claudeResponse.json();
-  const answer = claudeData.content?.[0]?.text || "Sorry, something went wrong.";
+  const geminiData = await geminiResponse.json();
+  const answer =
+    geminiData.candidates?.[0]?.content?.parts?.[0]?.text ||
+    "Sorry, something went wrong.";
 
   return new Response(
     JSON.stringify({ answer, sources }),
