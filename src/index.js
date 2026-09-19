@@ -18,7 +18,7 @@ export default {
     }
 
     if (url.pathname === "/chat" && request.method === "POST") {
-      return new Response("chat not implemented yet", { status: 501 });
+      return handleChat(request, env);
     }
 
     return new Response("Not found", { status: 404 });
@@ -57,6 +57,24 @@ async function handleIngest(request, env) {
 
   return new Response(
     JSON.stringify({ ingested: vectors.length }),
+    { headers: { "Content-Type": "application/json" } }
+  );
+}
+
+async function handleChat(request, env) {
+  const { query } = await request.json();
+
+  const queryVector = await embed(env, query);
+
+  const matches = await env.VECTORIZE.query(queryVector, {
+    topK: 4,
+    returnMetadata: true,
+  });
+
+  const contextChunks = matches.matches.map((m) => m.metadata.text);
+
+  return new Response(
+    JSON.stringify({ contextChunks }),
     { headers: { "Content-Type": "application/json" } }
   );
 }
