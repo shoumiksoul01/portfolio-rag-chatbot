@@ -2,21 +2,32 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    if (request.method === "POST" && url.pathname === "/ingest") {
-      return new Response(JSON.stringify({ message: "ingest endpoint - not yet implemented" }), {
-        headers: { "Content-Type": "application/json" },
+    // CORS preflight
+    if (request.method === "OPTIONS") {
+      return new Response(null, {
+        headers: {
+          "Access-Control-Allow-Origin": env.ALLOWED_ORIGIN,
+          "Access-Control-Allow-Methods": "POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type, X-Ingest-Secret",
+        },
       });
     }
 
-    if (request.method === "POST" && url.pathname === "/chat") {
-      return new Response(JSON.stringify({ message: "chat endpoint - not yet implemented" }), {
-        headers: { "Content-Type": "application/json" },
-      });
+    if (url.pathname === "/ingest" && request.method === "POST") {
+      return new Response("ingest not implemented yet", { status: 501 });
     }
 
-    return new Response(JSON.stringify({ error: "not found" }), {
-      status: 404,
-      headers: { "Content-Type": "application/json" },
-    });
+    if (url.pathname === "/chat" && request.method === "POST") {
+      return new Response("chat not implemented yet", { status: 501 });
+    }
+
+    return new Response("Not found", { status: 404 });
   },
 };
+
+async function embed(env, text) {
+  const result = await env.AI.run("@cf/baai/bge-base-en-v1.5", {
+    text: [text],
+  });
+  return result.data[0];
+}
