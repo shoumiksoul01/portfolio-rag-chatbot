@@ -149,13 +149,14 @@
     messages.scrollTop = messages.scrollHeight;
   }
 
-  form.addEventListener("submit", async (e) => {
+    form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const query = input.value.trim();
     if (!query) return;
 
     addMessage(query, "user");
     input.value = "";
+    input.disabled = true;
 
     try {
       const res = await fetch(WORKER_URL + "/chat", {
@@ -167,6 +168,9 @@
       addMessage(data.answer, "bot");
     } catch (err) {
       addMessage("Sorry, something went wrong.", "bot");
+    } finally {
+      input.disabled = false;
+      input.focus();
     }
   });
 </script>
