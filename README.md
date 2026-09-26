@@ -9,4 +9,12 @@ my real portfolio content.
 - Cloudflare Workers — serverless backend
 - Cloudflare Workers AI — embeddings
 - Cloudflare Vectorize — vector database
-- Anthropic Claude API — answer generation
+- Google Gemini API — answer generation (free tier)
+
+## Live Worker
+
+Deployed at: https://portfolio-rag.sheikhshoumik64.workers.dev
+
+Endpoints:
+- `POST /ingest` — re-embed and upsert all chunks from `data/content.json` into Vectorize. Protected by `X-Ingest-Secret` header.
+- `POST /chat` — takes `{"query": "..."}`, returns `{"answer": "...", "sources": [...]}`.
