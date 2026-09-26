@@ -66,6 +66,20 @@
     max-height: 340px;
   }
 
+  .chat-msg {
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .chat-msg.user {
+    color: #93C5FD;
+    font-weight: 600;
+  }
+
+  .chat-msg.bot {
+    color: #E2E8F0;
+  }
+
   #chat-form {
     display: flex;
     border-top: 1px solid #1E293B;
@@ -108,3 +122,51 @@
     </form>
   </div>
 </div>
+
+<script>
+  const WORKER_URL = "https://portfolio-rag.sheikhshoumik64.workers.dev";
+
+  const bubble = document.getElementById("chat-bubble");
+  const panel = document.getElementById("chat-panel");
+  const closeBtn = document.getElementById("chat-close");
+  const form = document.getElementById("chat-form");
+  const input = document.getElementById("chat-input");
+  const messages = document.getElementById("chat-messages");
+
+  bubble.addEventListener("click", () => {
+    panel.classList.toggle("open");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    panel.classList.remove("open");
+  });
+
+  function addMessage(text, sender) {
+    const div = document.createElement("div");
+    div.className = "chat-msg " + sender;
+    div.textContent = (sender === "user" ? "You: " : "") + text;
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const query = input.value.trim();
+    if (!query) return;
+
+    addMessage(query, "user");
+    input.value = "";
+
+    try {
+      const res = await fetch(WORKER_URL + "/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query }),
+      });
+      const data = await res.json();
+      addMessage(data.answer, "bot");
+    } catch (err) {
+      addMessage("Sorry, something went wrong.", "bot");
+    }
+  });
+</script>
