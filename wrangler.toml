@@ -10,4 +10,4 @@ binding = "VECTORIZE"
 index_name = "portfolio-index"
 
 [vars]
-ALLOWED_ORIGIN = "*"
+ALLOWED_ORIGIN = "https://shoumiksoul01.github.io"
