@@ -1,4 +1,96 @@
 <!-- Portfolio Chat Widget -->
+<style>
+  #chat-widget {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  #chat-bubble {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #2563EB;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+
+  #chat-panel {
+    display: none;
+    position: absolute;
+    bottom: 72px;
+    right: 0;
+    width: 340px;
+    max-height: 480px;
+    background: #0F172A;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    flex-direction: column;
+  }
+
+  #chat-panel.open {
+    display: flex;
+  }
+
+  #chat-header {
+    background: #2563EB;
+    color: #fff;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+  }
+
+  #chat-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  #chat-messages {
+    flex: 1;
+    padding: 12px 16px;
+    overflow-y: auto;
+    color: #E2E8F0;
+    font-size: 14px;
+    max-height: 340px;
+  }
+
+  #chat-form {
+    display: flex;
+    border-top: 1px solid #1E293B;
+  }
+
+  #chat-input {
+    flex: 1;
+    padding: 12px;
+    background: #1E293B;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+  }
+
+  #chat-send {
+    background: #2563EB;
+    color: #fff;
+    border: none;
+    padding: 0 16px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+</style>
+
 <div id="chat-widget">
   <button id="chat-bubble" aria-label="Open chat">💬</button>
 
