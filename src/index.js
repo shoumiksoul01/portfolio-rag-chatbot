@@ -7,7 +7,6 @@ export default {
       "Access-Control-Allow-Headers": "Content-Type, X-Ingest-Secret",
     };
 
-    // CORS preflight
     if (request.method === "OPTIONS") {
       return new Response(null, { headers: corsHeaders });
     }
@@ -79,6 +78,8 @@ async function handleChat(request, env, corsHeaders) {
 
 Rules:
 - Answer ONLY using the context provided below. Never use outside knowledge or guess.
+- Copy all dates, numbers, job titles, company names, and project names EXACTLY as written in the context. Never change, round, infer, or add any date, duration, or duty that is not literally stated.
+- Do not embellish or fill in details. If the context only partly answers the question, give only the part it covers and say you don't have the rest.
 - Speak about Shoumik in third person, in a warm but professional tone.
 - Keep answers to 2-4 sentences.
 - If the answer isn't in the context, say you don't have that information and suggest emailing sheikhshoumik64@gmail.com.
@@ -89,13 +90,14 @@ Context:
 ${contextText}`;
 
   const geminiResponse = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key=${env.GEMINI_API_KEY}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key=${env.GEMINI_API_KEY}`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: systemPrompt }] },
         contents: [{ parts: [{ text: query }] }],
+        generationConfig: { temperature: 0.1 },
       }),
     }
   );
