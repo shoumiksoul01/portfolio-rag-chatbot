@@ -80,6 +80,21 @@
     "text": "Executive Member of the DIU Data Science Club (2024 – Present, DIU, Dhaka). Organized workshops and peer learning sessions on data science and AI tools, supporting AI literacy across the Software Engineering department."
   },
   {
+    "id": "experience-dreamers",
+    "category": "experience",
+    "text": "Shoumik currently works as a Coding Instructor at Dreamers Academy, Bangladesh's largest coding education platform for school students, since October 2026. He teaches programming fundamentals (variables, loops, functions, and object-oriented programming) using Python, Scratch, HTML, CSS, and JavaScript to students through live online classes in Bangla and English, both one-on-one and in group batches."
+  },
+  {
+    "id": "experience-dreamers-details",
+    "category": "experience",
+    "text": "At Dreamers Academy, Shoumik designs lesson plans, assesses student progress through assignments and projects with constructive feedback, gives extra support to students who are falling behind, and holds regular feedback sessions with parents. He was selected through a multi-stage process: a CV application, a HackerRank Python (Basic) certification test, a recorded Bangla demo class on loops and number patterns in Python for 11 to 14 year olds, and an online interview."
+  },
+  {
+    "id": "experience-academia-goal",
+    "category": "experience",
+    "text": "Shoumik's long-term goal is a career in academia, including research, university-level teaching, and student mentoring. He sees teaching coding at Dreamers Academy as an early step toward that, building on more than three years of private tutoring and peer teaching sessions at the DIU Data Science Club."
+  },
+  {
     "id": "cert-aws",
     "category": "certification",
     "text": "AWS Academy Graduate — Cloud Security Foundations, issued by Amazon Web Services, April 2026, 20 hours."
